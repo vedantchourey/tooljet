@@ -1,5 +1,5 @@
 import React from 'react';
-import { theme } from "@material-ui/core/styles";
+
 import { Box, Typography, Grid, Card, CardMedia, CardContent, Button ,Avatar} from '@mui/material';
 import { styled } from '@mui/material/styles';
 import Symbol1 from './symbol1.png';
