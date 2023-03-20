@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Box, Typography, Grid, Card, CardMedia, CardContent, Button ,Avatar} from '@mui/material';
 import { styled } from '@mui/material/styles';
 import Symbol1 from './symbol1.png';
@@ -10,6 +10,7 @@ import Image1 from './f1.png';
 import Image2 from './f2.png';
 
 
+
 const StyledCard = styled(Card)({
   borderRadius: '16px',
   boxShadow: 'none',
@@ -18,6 +19,7 @@ const StyledCard = styled(Card)({
   
   
 });
+
 
 const cards = [{
   "cardsymbol" :  Symbol1,
@@ -39,19 +41,31 @@ export default function Features() {
   return (
     <Box bgcolor="#FFFFFF" py={10}>
       <Box textAlign="center">
-        <Box mb={4}>
-          <img src={Image} alt="Feature" />
+        <Box sx={{ mb: 4 ,transition: 'transform 0.2s ease-in-out',
+          '&:hover': {
+        transform: 'scale(1.1)'}}
+      }>
+          <img src={Image} alt="Feature" style={{
+          transition: 'transform 0.2s ease-in-out',
+          '&:hover': {
+              transform: 'scale(1.1)'
+            }
+            }} />
         </Box>
-        <Typography variant="h4" gutterBottom>
+        
+          <Typography variant="h4" gutterBottom>
           Cutting-edge features for advanced analytics
-        </Typography>
+          </Typography>
+        
         <Typography variant="subtitle1" color="textSecondary">
           Powerful, self-serve product and growth analytics to help you convert, engage, and retain more users. Trusted by over 4,000 startups.
         </Typography>
       </Box>
       <Box mt={10} textAlign="center">
         <Grid container spacing={2}>
-          <img src={Image1} alt="Feature1" style={{ position: 'relative',  zIndex: 1 ,height:"33%",width:"25%",marginLeft:"10%" ,marginTop:"12%" 
+          <img src={Image1} alt="Feature1" style={{ position: 'relative',  zIndex: 1 ,height:"33%",width:"25%",marginLeft:"10%" ,marginTop:"12%" ,
+        
+        
         }} />
           <img src={Image2} alt="Feature2" style={{ position: 'absolute', zIndex: 0 , width:"80%", marginLeft:"20%" }} />
         </Grid>
@@ -88,15 +102,10 @@ export default function Features() {
       <style jsx>{`
         @media (max-width: 600px) {
           img[src="${Image1}"] {
-            display: block;
-            height: 500%;
-            width: 500%;
-            z-index: 0;
+            left: 40%;
           }
           img[src="${Image2}"] {
             display: none;
-          
-            
           }
         }
       `}</style>
